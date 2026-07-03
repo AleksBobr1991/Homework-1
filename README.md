@@ -1,1 +1,1 @@
-Homework 10: Калькулятор и Unit-тесты на Jest
+Homework 10: Калькуляптор и Unit-тесты на Jest
