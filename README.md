@@ -1,2 +1,1 @@
-# Homework-1
-add changes for Readme.md main branch
+Homework 10: Калькуляптор и Unit-тесты на Jest
