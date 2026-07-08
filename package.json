@@ -1,0 +1,13 @@
+{
+  "name": "homework-11",
+  "version": "1.0.0",
+  "description": "API Tests",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "axios": "^1.7.9",
+    "jest": "^29.7.0"
+  }
+}
