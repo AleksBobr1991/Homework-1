@@ -1,4 +1,3 @@
-// bbc-locators.spec.js
 const { test, expect } = require('@playwright/test');
 
 test.describe("UI Locators Practice - Wikipedia", () => {
