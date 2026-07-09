@@ -1,4 +1,3 @@
-// tests/todomvc.spec.js
 const { test, expect } = require('@playwright/test');
 const path = require('path');
 
@@ -6,12 +5,10 @@ const statePath = path.join(__dirname, '../storageState.json');
 
 test.describe("Playwright Homework - TodoMVC Suite", () => {
 
-    // 7. Использование test.use() для настройки базового URL (Требование ТЗ)
-    test.use({ baseURL: 'https://playwright.dev' });
+    test.use({ baseURL: 'https://demo.playwright.dev/todomvc' });
 
-    // Перед каждым тестом открываем именно корень сайта TodoMVC
     test.beforeEach(async ({ page }) => {
-        await page.goto('/', { waitUntil: 'domcontentloaded' });
+        await page.goto('https://demo.playwright.dev/todomvc', { waitUntil: 'domcontentloaded' });
     });
 
     // ========================================================
@@ -134,7 +131,6 @@ test.describe("Playwright Homework - TodoMVC Suite", () => {
         const todoItems = page.getByTestId('todo-item');
         await todoItems.nth(0).locator('.toggle').click();
 
-        // 8. Сохранение состояния браузера в storageState.json (Пункт 8 ТЗ)
         await context.storageState({ path: statePath });
         await page.reload();
 
@@ -157,26 +153,26 @@ test.describe("Playwright Homework - TodoMVC Suite", () => {
         await page.getByTestId('todo-item').nth(1).locator('.toggle').click();
         await page.getByRole('link', { name: 'All' }).click();
 
-        // 9. Screenshot testing стабильного блока приложения (Пункт 9 ТЗ)
         const todoAppBlock = page.locator('.todoapp');
         await expect(todoAppBlock).toHaveScreenshot('todomvc-layout-snapshot.png');
     });
 });
 
 // ========================================================
-// ДОПОЛНИТЕЛЬНОЕ ЗАДАНИЕ СО ЗВЕЗДОЧКОЙ (Мобильный viewport)
+// ДОПОЛНИТЕЛЬНОЕ ЗАДАНИЕ СО ЗВЕЗДОЧКОЙ
 // ========================================================
 test.describe("TodoMVC Mobile Viewport Tests", () => {
 
     test.use({
-        baseURL: 'https://playwright.dev',
-        viewport: { width: 390, height: 844 }
+        viewport: { width: 390, height: 844 } // Размеры под мобильный экран
     });
 
     test("should render and add items correctly on mobile viewport size", async ({ page }) => {
-        await page.goto('/', { waitUntil: 'domcontentloaded' });
+        await page.goto('https://demo.playwright.dev/todomvc/', { waitUntil: 'domcontentloaded' });
 
         const todoInput = page.getByPlaceholder('What needs to be done?');
+        await todoInput.waitFor({ state: 'visible', timeout: 5000 });
+
         await todoInput.fill('Mobile task 1');
         await page.keyboard.press('Enter');
 
