@@ -1,8 +1,7 @@
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
-storageState.json
-tests/todomvc.spec.js-snapshots/
+playwright-report/
+test-results/
+blob-report/
+.auth/*.json
+.DS_Store
+.idea/

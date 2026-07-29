@@ -1,26 +1,64 @@
-# Homework-14
-# Playwright Homework - TodoMVC Automation
+# Playwright POM Homework
 
-## Как запустить проект
+Автоматизированные тесты TodoMVC на Playwright с использованием Page Object Model.
 
-1. **Установка зависимостей проекта:**
-   ```bash
-   npm install
-   ```
-2. **Генерация базовых снимков для визуальных тестов (Обязательно при первом запуске):**
-   ```bash
-   npx playwright test --update-snapshots
-   ```
-3. **Запуск тестов в консольном режиме:**
-   ```bash
-   npx playwright test
-   ```
-4. **Запуск тестов в headed-режиме (с открытием браузера):**
-   ```bash
-   npx playwright test --headed
-   ```
-5. **Просмотр HTML отчёта:**
-   ```bash
-   npx playwright show-report
-   ```
+## Что реализовано
 
+- 7 тестовых сценариев
+- Page Object TodoPage
+- компонент TodoListComponent
+- кастомная fixture
+- отдельные тестовые данные
+- helper-функции
+- storage state
+- screenshot testing
+- HTML report
+- trace и screenshot при падении теста
+
+## Установка
+
+npm install
+npx playwright install chromium
+
+## Запуск всех тестов
+
+npm test
+
+## Запуск с открытым браузером
+
+npm run test:headed
+
+## Запуск в Playwright UI
+
+npm run test:ui
+
+## Проверка TypeScript
+
+npm run typecheck
+
+## Открытие HTML-отчёта
+
+npm run report
+
+## Обновление screenshot snapshots
+
+npm run test:update-snapshots
+
+## Структура проекта
+
+Homework-1/
+- components/TodoListComponent.ts
+- fixtures/todo.fixture.ts
+- helpers/random.ts
+- pages/TodoPage.ts
+- test-data/todos.ts
+- tests/todomvc.spec.ts
+- tests/todomvc.spec.ts-snapshots/
+- playwright.config.ts
+- tsconfig.json
+- package.json
+- README.md
+
+## Тестируемый сайт
+
+https://demo.playwright.dev/todomvc/
