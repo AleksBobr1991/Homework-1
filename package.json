@@ -1,0 +1,27 @@
+{
+  "name": "homework-1",
+  "version": "1.0.0",
+  "description": "Playwright Basics: UI tests without framework architecture",
+  "main": "index.js",
+  "dependencies": {
+    "playwright": "^1.61.1",
+    "playwright-core": "^1.61.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleksBobr1991/Homework-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AleksBobr1991/Homework-1/issues"
+  },
+  "homepage": "https://github.com/AleksBobr1991/Homework-1#readme"
+}
