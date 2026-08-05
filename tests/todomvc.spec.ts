@@ -5,8 +5,6 @@ import {
   expect,
 } from '../fixtures/todo.fixture';
 
-import { TodoPage } from '../pages/TodoPage';
-
 import {
   editableTodo,
   persistentTodos,
@@ -142,59 +140,46 @@ test.describe('TodoMVC tests with POM', () => {
     },
   );
 
-  test(
-    'should save and restore application state',
-    async ({
-      todoPage,
-      context,
-      browser,
-    }) => {
-      await todoPage.addTodos(persistentTodos);
-      await todoPage.completeTodo(persistentTodos[0]);
+    test(
+        'should save and restore application state',
+        async ({
+                   todoPage,
+                   restoreTodoPage,
+               }) => {
+            await todoPage.addTodos(persistentTodos);
 
-      await context.storageState({
-        path: storageStatePath,
-      });
+            await todoPage.completeTodo(
+                persistentTodos[0],
+            );
 
-      const restoredContext = await browser.newContext({
-        storageState: storageStatePath,
-        baseURL: 'https://demo.playwright.dev/todomvc/',
-        viewport: {
-          width: 1280,
-          height: 720,
+            await todoPage.saveApplicationState(
+                storageStatePath,
+            );
+
+            const restoredTodoPage =
+                await restoreTodoPage(storageStatePath);
+
+            await expect(
+                restoredTodoPage.todoItems,
+            ).toHaveText([...persistentTodos]);
+
+            await expect(
+                restoredTodoPage.getTodoByText(
+                    persistentTodos[0],
+                ),
+            ).toHaveClass(/completed/);
+
+            await expect(
+                restoredTodoPage.getTodoByText(
+                    persistentTodos[1],
+                ),
+            ).not.toHaveClass(/completed/);
+
+            await expect(
+                restoredTodoPage.activeCounter,
+            ).toContainText('1 item left');
         },
-        locale: 'en-US',
-        timezoneId: 'Europe/Vilnius',
-        colorScheme: 'light',
-      });
-
-      try {
-        const restoredPage = new TodoPage(
-          await restoredContext.newPage(),
-        );
-
-        await restoredPage.open();
-
-        await expect(restoredPage.todoItems).toHaveText([
-          ...persistentTodos,
-        ]);
-
-        await expect(
-          restoredPage.getTodoByText(persistentTodos[0]),
-        ).toHaveClass(/completed/);
-
-        await expect(
-          restoredPage.getTodoByText(persistentTodos[1]),
-        ).not.toHaveClass(/completed/);
-
-        await expect(
-          restoredPage.activeCounter,
-        ).toContainText('1 item left');
-      } finally {
-        await restoredContext.close();
-      }
-    },
-  );
+    );
 
   test(
     'should match TodoMVC visual snapshot',

@@ -108,4 +108,12 @@ export class TodoPage {
   async getTodosCount(): Promise<number> {
     return this.todoItems.count();
   }
+  async saveApplicationState(
+      storageStatePath: string,
+  ): Promise<void> {
+    await this.page.context().storageState({
+      path: storageStatePath,
+    });
+  }
 }
+
