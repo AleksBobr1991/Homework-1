@@ -1,0 +1,56 @@
+name: Regression Tests
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * 1,4'
+
+jobs:
+  regression-tests:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: control-work-2
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: control-work-2/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Run regression tests
+        run: npm run test:regression
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-playwright-report
+          path: control-work-2/playwright-report/
+          retention-days: 7
+
+      - name: Upload test artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-test-results
+          path: control-work-2/test-results/
+          retention-days: 7
