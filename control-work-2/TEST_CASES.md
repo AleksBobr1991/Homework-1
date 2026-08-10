@@ -4,6 +4,14 @@
 
 **Feature:** Home
 
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
 **Preconditions:**
 
 - Automation Exercise website is available.
@@ -25,6 +33,14 @@
 
 **Feature:** Navigation
 
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
 **Preconditions:**
 
 - User is on the Automation Exercise home page.
@@ -44,6 +60,14 @@
 ## TC-003 — Display the products catalogue
 
 **Feature:** Products
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
 
 **Preconditions:**
 
@@ -65,6 +89,14 @@
 ## TC-004 — Search for an existing product
 
 **Feature:** Product search
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
 
 **Preconditions:**
 
@@ -90,6 +122,14 @@
 
 **Feature:** Product search
 
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
 **Preconditions:**
 
 - User is on the Products page.
@@ -111,6 +151,14 @@
 ## TC-006 — Open product details from the catalogue
 
 **Feature:** Product details
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
 
 **Preconditions:**
 
@@ -143,6 +191,14 @@
 
 **Feature:** Product categories
 
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
 **Preconditions:**
 
 - User is on the Products page.
@@ -167,6 +223,14 @@
 ## TC-008 — Add two products to the cart from the catalogue
 
 **Feature:** Shopping cart
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
 
 **Preconditions:**
 
@@ -194,6 +258,14 @@
 
 **Feature:** Shopping cart
 
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
 **Preconditions:**
 
 - Product `Blue Top` exists.
@@ -217,6 +289,14 @@
 ## TC-010 — Display the correct price and total in the cart
 
 **Feature:** Shopping cart
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
 
 **Preconditions:**
 
@@ -242,6 +322,14 @@
 ## TC-011 — Remove a selected product from the cart
 
 **Feature:** Shopping cart
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
 
 **Preconditions:**
 
@@ -270,6 +358,14 @@
 
 **Feature:** Authentication
 
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
 **Preconditions:**
 
 - User is on the Signup/Login page.
@@ -292,6 +388,14 @@
 
 **Feature:** Registration
 
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
 **Preconditions:**
 
 - User is on the Signup/Login page.
@@ -312,3 +416,517 @@
 - The URL contains `/signup`.
 - The Enter Account Information heading is displayed.
 - The generated name and email are prefilled correctly.
+
+---
+
+## TC-014 — Open Contact Us page
+
+**Feature:** Contact Us
+
+**Type:** UI
+
+**Priority:** Critical
+
+**Tag:** @smoke
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- Automation Exercise website is available.
+
+**Steps:**
+
+1. Open the Contact Us page.
+2. Check that the Get In Touch heading is displayed.
+3. Check that the contact form is visible.
+
+**Expected result:**
+
+- Contact Us page is opened.
+- Contact form is displayed.
+
+---
+
+## TC-015 — Submit Contact Us form
+
+**Feature:** Contact Us
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- User is on the Contact Us page.
+
+**Steps:**
+
+1. Enter name.
+2. Enter email.
+3. Enter subject.
+4. Enter message.
+5. Submit the form.
+6. Accept the confirmation dialog.
+
+**Expected result:**
+
+- Success message is displayed.
+
+---
+
+## TC-016 — Display subscription form
+
+**Feature:** Subscription
+
+**Type:** UI
+
+**Priority:** Critical
+
+**Tag:** @smoke
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- User is on the Home page.
+
+**Steps:**
+
+1. Open the Home page.
+2. Check the subscription email field.
+3. Check the Subscribe button.
+
+**Expected result:**
+
+- Subscription form is displayed.
+
+---
+
+## TC-017 — Subscribe with valid email
+
+**Feature:** Subscription
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- User is on the Home page.
+
+**Steps:**
+
+1. Generate a unique email.
+2. Enter the email into the subscription form.
+3. Click Subscribe.
+
+**Expected result:**
+
+- Subscription success message is displayed.
+
+---
+
+## TC-018 — Display Recommended Items section
+
+**Feature:** Recommended Items
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- User is on the Home page.
+
+**Steps:**
+
+1. Open the Home page.
+2. Locate the Recommended Items section.
+3. Verify the heading.
+
+**Expected result:**
+
+- Recommended Items section is visible.
+
+---
+
+## TC-019 — Display recommended products
+
+**Feature:** Recommended Items
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- User is on the Home page.
+
+**Steps:**
+
+1. Open the Home page.
+2. Locate Recommended Items.
+3. Count displayed products.
+
+**Expected result:**
+
+- At least one recommended product is displayed.
+
+---
+
+## TC-020 — Navigate to Cart from header
+
+**Feature:** Navigation
+
+**Type:** UI
+
+**Priority:** Critical
+
+**Tag:** @smoke
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- User is on the Home page.
+
+**Steps:**
+
+1. Click the Cart link in the header.
+
+**Expected result:**
+
+- Cart page is opened.
+- URL contains `/view_cart`.
+
+---
+
+## TC-021 — Open Test Cases page
+
+**Feature:** Test Cases
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- User is on the Home page.
+
+**Steps:**
+
+1. Click Test Cases.
+
+**Expected result:**
+
+- Test Cases page is opened.
+- URL contains `/test_cases`.
+
+---
+
+## TC-022 — Display Test Cases heading
+
+**Feature:** Test Cases
+
+**Type:** UI
+
+**Priority:** High
+
+**Tag:** @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- User is on the Home page.
+
+**Steps:**
+
+1. Open the Test Cases page.
+2. Verify the page heading.
+
+**Expected result:**
+
+- Test Cases heading is displayed.
+
+---
+
+## TC-023 — Get all products API
+
+**Feature:** Products API
+
+**Type:** API
+
+**Priority:** Critical
+
+**Tag:** @api @smoke
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- API is available.
+
+**Steps:**
+
+1. Send GET request to `/api/productsList`.
+2. Validate the response body.
+
+**Expected result:**
+
+- HTTP status is 200.
+- API response code is 200.
+- Product list is not empty.
+- Product objects contain expected fields.
+
+---
+
+## TC-024 — Search product by name API
+
+**Feature:** Products API
+
+**Type:** API
+
+**Priority:** High
+
+**Tag:** @api @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- API is available.
+
+**Steps:**
+
+1. Send POST request to `/api/searchProduct`.
+2. Pass `Blue Top` as the search value.
+
+**Expected result:**
+
+- HTTP status is 200.
+- Product `Blue Top` is returned.
+
+---
+
+## TC-025 — Search unknown product API
+
+**Feature:** Products API
+
+**Type:** API
+
+**Priority:** High
+
+**Tag:** @api @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- API is available.
+
+**Steps:**
+
+1. Send POST request to `/api/searchProduct`.
+2. Pass a non-existing product name.
+
+**Expected result:**
+
+- HTTP status is 200.
+- Returned product list is empty.
+
+---
+
+## TC-026 — Get all brands API
+
+**Feature:** Brands API
+
+**Type:** API
+
+**Priority:** Critical
+
+**Tag:** @api @smoke
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- API is available.
+
+**Steps:**
+
+1. Send GET request to `/api/brandsList`.
+2. Validate the response body.
+
+**Expected result:**
+
+- HTTP status is 200.
+- API response code is 200.
+- Brand list is not empty.
+
+---
+
+## TC-027 — Verify invalid login API
+
+**Feature:** Login API
+
+**Type:** API
+
+**Priority:** High
+
+**Tag:** @api @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- API is available.
+
+**Steps:**
+
+1. Send POST request to `/api/verifyLogin`.
+2. Pass invalid email and password.
+
+**Expected result:**
+
+- HTTP status is 200.
+- API response code is 404.
+- Message indicates that the user was not found.
+
+---
+
+## TC-028 — Verify login without email API
+
+**Feature:** Login API
+
+**Type:** API
+
+**Priority:** High
+
+**Tag:** @api @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- API is available.
+
+**Steps:**
+
+1. Send POST request to `/api/verifyLogin`.
+2. Do not provide an email.
+
+**Expected result:**
+
+- HTTP status is 200.
+- API response code is 400.
+- Bad Request message is returned.
+
+---
+
+## TC-029 — Reject POST request to Products List
+
+**Feature:** Products API
+
+**Type:** API
+
+**Priority:** High
+
+**Tag:** @api @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- API is available.
+
+**Steps:**
+
+1. Send POST request to `/api/productsList`.
+
+**Expected result:**
+
+- HTTP status is 200.
+- API response code is 405.
+- Message indicates that the request method is not supported.
+
+---
+
+## TC-030 — Reject PUT request to Brands List
+
+**Feature:** Brands API
+
+**Type:** API
+
+**Priority:** High
+
+**Tag:** @api @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- API is available.
+
+**Steps:**
+
+1. Send PUT request to `/api/brandsList`.
+
+**Expected result:**
+
+- HTTP status is 200.
+- API response code is 405.
+- Message indicates that the request method is not supported.
+
+---
+
+## TC-031 — Get product through API and verify it in UI
+
+**Feature:** UI and API integration
+
+**Type:** UI + API
+
+**Priority:** High
+
+**Tag:** @api @regression
+
+**Automation status:** Automated
+
+**Preconditions:**
+
+- Automation Exercise website and API are available.
+
+**Steps:**
+
+1. Get the products list through API.
+2. Take the name of the first returned product.
+3. Open the Products page in UI.
+4. Search for the product using its API value.
+5. Verify the product in the UI search results.
+
+**Expected result:**
+
+- API returns products successfully.
+- The product obtained through API is found in the UI.
+- The displayed product name matches the API value.

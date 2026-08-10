@@ -1,6 +1,6 @@
-import { test, expect } from '../fixtures/app.fixture';
+import { test, expect } from '../../fixtures/app.fixture';
 
-import { cartData, products } from '../test-data/testData';
+import { cartData, products } from '../../test-data/testData';
 
 test.describe('Shopping cart', () => {
   test('should add two products to cart from catalogue', async ({

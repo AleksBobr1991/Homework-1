@@ -1,6 +1,6 @@
-import { test, expect } from '../fixtures/app.fixture';
+import { test, expect } from '../../fixtures/app.fixture';
 
-import { categories, products, searchData } from '../test-data/testData';
+import { categories, products, searchData } from '../../test-data/testData';
 
 test.describe('Products and search', () => {
   test.beforeEach(async ({ productsPage }) => {

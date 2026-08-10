@@ -1,8 +1,10 @@
-# UI Test Automation Framework
+# UI and API Test Automation Framework
 
-End-to-end test automation framework for the Automation Exercise website.
+Учебный проект автоматизации тестирования сайта Automation Exercise.
 
-## Website
+Проект является расширением контрольной работы №2 и включает UI end-to-end тесты, API-тесты, Page Object Model, smoke/regression наборы, GitHub Actions и проверки качества кода.
+
+## Tested website
 
 https://www.automationexercise.com/
 
@@ -11,195 +13,342 @@ https://www.automationexercise.com/
 - Playwright
 - TypeScript
 - Page Object Model
+- Playwright APIRequestContext
 - ESLint
 - Prettier
-- HTML Reporter
+- GitHub Actions
+- Playwright HTML Reporter
 
-## Test coverage
+## Requirements
 
-The project contains 13 end-to-end tests covering four functional areas:
+- Node.js 20+
+- npm
 
-1. Home and navigation
-2. Products and search
-3. Shopping cart
-4. Authentication and registration
-
-Detailed test cases are described in `TEST_CASES.md`.
-
-## Implemented scenarios
-
-### Home and navigation
-
-- Open the Automation Exercise home page
-- Navigate to the Products page from the header
-
-### Products and search
-
-- Display the products catalogue
-- Search for an existing product
-- Search for a non-existing product
-- Open product details
-- Filter products by category
-
-### Shopping cart
-
-- Add two products from the catalogue
-- Add a product with selected quantity
-- Verify product price and total
-- Remove a product from the cart
-
-### Authentication and registration
-
-- Show an error for invalid login credentials
-- Start registration with unique user data
-
-## Project structure
-
-control-work-2/
-
-- tests/ — end-to-end test scenarios and assertions
-- pages/ — Page Object classes
-- components/ — reusable UI components
-- fixtures/ — custom Playwright fixtures
-- test-data/ — test data
-- helpers/ — data generation and network helpers
-- playwright.config.ts — Playwright configuration
-- TEST_CASES.md — manual test-case documentation
-- README.md — project documentation
-
-## Main Page Objects
-
-- BasePage
-- HomePage
-- ProductsPage
-- ProductDetailsPage
-- CartPage
-- LoginPage
-- SignupPage
-
-## Components
-
-- HeaderComponent
-- CookieConsentComponent
-- ProductCardComponent
-- AddToCartModalComponent
-- CartItemComponent
-
-## Prerequisites
-
-Install Node.js version 20 or newer.
-
-Check the installed versions:
+Проверить версии:
 
 node -v
 npm -v
 
 ## Installation
 
-Install project dependencies:
+Установить зависимости:
 
 npm install
 
-Install Playwright browsers:
+Установить браузеры Playwright:
 
 npx playwright install chromium firefox
 
-## Run all tests
+## Test coverage
 
-The following command runs tests in Chromium and Firefox:
+Проект содержит:
 
-npm test
+- 22 UI test scenarios
+- 8 API test scenarios
+- 30 unique automated scenarios
+- Chromium and Firefox support
+- smoke test suite
+- regression test suite
 
-## Run tests in Chromium
+## Functional areas
 
-npm run test:chromium
+Автоматизированы следующие функциональности:
 
-## Run tests in Firefox
+1. Home page
+2. Navigation
+3. Authentication
+4. Registration
+5. Products catalogue
+6. Product search
+7. Product categories
+8. Product details
+9. Shopping cart
+10. Contact form
+11. Subscription
+12. Recommended items
+13. Test Cases page
+14. Products API
+15. Brands API
+16. Login verification API
 
-npm run test:firefox
+## Project structure
 
-## Run tests in headed mode
+control-work-2/
 
-npm run test:headed
+- api/ — API client layer
+- components/ — reusable page components
+- fixtures/ — Playwright fixtures
+- helpers/ — helper functions
+- pages/ — Page Object classes
+- schemas/ — response schemas
+- test-data/ — test data
+- tests/
+  - ui/ — UI end-to-end tests
+  - api/ — API tests
+- playwright.config.ts — Playwright configuration
+- eslint.config.mjs — ESLint configuration
+- .prettierrc — Prettier configuration
+- TEST_CASES.md — automated test cases
+- README.md — project documentation
 
-## Run tests in Playwright UI mode
+GitHub Actions workflows are stored in the repository root:
+
+.github/workflows/
+
+- api-tests.yml
+- smoke-tests.yml
+- regression-tests.yml
+
+## Run UI tests
+
+Run UI tests in Chromium:
 
 npm run test:ui
 
-## Open HTML report
+## Run API tests
 
-Run the tests first:
+npm run test:api
+
+## Run smoke tests
+
+npm run test:smoke
+
+Smoke tests use the tag:
+
+@smoke
+
+## Run regression tests
+
+npm run test:regression
+
+Regression includes all automated UI and API tests.
+
+## Run all tests
 
 npm test
 
-Then open the report:
+## Run Chromium
 
-npm run report
+npm run test:chromium
 
-## Code quality checks
+## Run Firefox
 
-TypeScript check:
+npm run test:firefox
+
+## Run headed mode
+
+npm run test:headed
+
+## TypeScript check
 
 npm run typecheck
 
-ESLint check:
+## ESLint
 
 npm run lint
 
-Prettier check:
+## Prettier
+
+Check formatting:
 
 npm run format:check
 
-Format the project:
+Format project:
 
 npm run format
 
+## HTML report
+
+After running tests:
+
+npm run report
+
+The Playwright HTML report is generated in:
+
+playwright-report/
+
 ## Test artifacts
 
-For failed tests, Playwright saves:
+On failed UI tests Playwright can save:
 
-- screenshot
-- video
-- trace
+- screenshots
+- videos
+- traces
 
-Artifacts are stored in `test-results/`.
+Artifacts are stored in:
 
-The HTML report is stored in `playwright-report/`.
+test-results/
 
-These folders are excluded from Git.
+Local reports and test artifacts are ignored by Git.
 
-## Browser configuration
+## Tags
 
-The framework runs tests in:
+### @smoke
 
-- Chromium
-- Firefox
+Marks critical smoke scenarios.
 
-## Architecture
+Smoke suite contains the most important checks such as:
 
-### Test layer
+- API availability
+- product API availability
+- Contact Us page
+- cart navigation
+- subscription form
 
-The `tests/` directory contains test scenarios, assertions, and calls to Page Object methods.
+### @api
 
-### Page Object layer
+Marks API tests.
 
-The `pages/` and `components/` directories contain locators, user actions, and business-level methods.
+All API tests are located separately in:
 
-### Test data layer
+tests/api/
 
-The `test-data/` directory contains product information, login data, cart data, and expected messages.
+## API architecture
 
-### Helper layer
+API requests are isolated from tests using API client classes:
 
-The `helpers/` directory contains:
+- BaseApiClient
+- ProductsApi
+- BrandsApi
+- AccountApi
 
-- unique user data generation
-- unique email generation
-- third-party advertisement request blocking
+API clients execute requests.
 
-## Important notes
+Assertions remain in test files.
 
-- No real payments or purchases are performed.
-- Registration is stopped before account creation.
-- Third-party advertisements are blocked to improve test stability.
-- The `node_modules/`, `test-results/`, and `playwright-report/` folders must not be committed to Git.
+## UI architecture
+
+UI tests use Page Object Model.
+
+Page Objects contain:
+
+- locators
+- user actions
+- business methods
+- page state access
+
+Reusable UI elements are stored in components.
+
+Examples:
+
+- HeaderComponent
+- ProductCardComponent
+- CartItemComponent
+- CookieConsentComponent
+- SubscriptionComponent
+- RecommendedItemsComponent
+
+## Fixtures
+
+Custom Playwright fixtures provide:
+
+- Page Objects
+- API clients
+- common browser setup
+- third-party advertisement blocking
+
+## Test data
+
+Reusable test data is stored in:
+
+test-data/
+
+Unique user data and email addresses are created using helper generators.
+
+## GitHub Actions
+
+Three workflows are configured.
+
+### API Tests
+
+Runs:
+
+- on Pull Request
+- on push to main
+- manually
+
+Performs:
+
+- npm ci
+- ESLint
+- Prettier check
+- API tests
+- report artifact upload
+
+### Smoke Tests
+
+Runs:
+
+- on Pull Request
+- on push to main
+- manually
+
+Performs:
+
+- dependency installation
+- browser installation
+- ESLint
+- Prettier check
+- @smoke tests
+- report upload
+- failure artifacts upload
+
+### Regression Tests
+
+Runs:
+
+- manually
+- on schedule
+
+Performs:
+
+- dependency installation
+- browser installation
+- ESLint
+- Prettier check
+- full regression
+- report upload
+- failure artifacts upload
+
+The scheduled regression runs twice per week to reduce unnecessary traffic to the public demo website.
+
+## Environment variables
+
+The current project does not require private credentials for its automated scenarios.
+
+Secrets, passwords, tokens and API keys must not be committed to Git.
+
+If private configuration is added later, it should be provided through environment variables or GitHub Secrets.
+
+A real `.env` file must not be committed.
+
+## Known limitations
+
+Automation Exercise is a public demo website.
+
+Possible limitations:
+
+- response time can vary
+- third-party advertisements can interfere with UI interaction
+- network delays can affect test duration
+- public test data can change
+
+Third-party advertisement requests are blocked by a helper to improve test stability.
+
+Regression uses a limited number of workers to avoid excessive load on the public website.
+
+## Test cases
+
+All automated scenarios are documented in:
+
+TEST_CASES.md
+
+## Important restrictions
+
+The project:
+
+- does not perform real payments
+- does not confirm real purchases
+- does not bypass CAPTCHA
+- does not store secrets in Git
+- does not use fixed waitForTimeout delays as the main synchronization method

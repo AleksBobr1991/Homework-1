@@ -8,12 +8,15 @@
     "test:chromium": "playwright test --project=chromium",
     "test:firefox": "playwright test --project=firefox",
     "test:headed": "playwright test --headed --project=chromium --workers=1",
-    "test:ui": "playwright test --ui",
+    "test:ui": "playwright test tests/ui --project=chromium",
     "report": "playwright show-report",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test:api": "playwright test tests/api --project=chromium",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test"
   },
   "keywords": [],
   "author": "",

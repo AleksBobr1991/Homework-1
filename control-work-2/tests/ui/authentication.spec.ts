@@ -1,8 +1,8 @@
-import { test, expect } from '../fixtures/app.fixture';
+import { test, expect } from '../../fixtures/app.fixture';
 
-import { generateUserData } from '../helpers/dataGenerator';
+import { generateUserData } from '../../helpers/dataGenerator';
 
-import { invalidLoginData } from '../test-data/testData';
+import { invalidLoginData } from '../../test-data/testData';
 
 test.describe('Authentication', () => {
   test.beforeEach(async ({ loginPage }) => {
